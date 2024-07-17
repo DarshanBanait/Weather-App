@@ -15,7 +15,7 @@ def index(request):
 
             url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}&units=metric"
 
-            response = requests.get(url).json()
+            response = requests.get(url, timeout=60).json()
 
             current_time = datetime.now()
 
