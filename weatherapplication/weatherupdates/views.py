@@ -1,7 +1,7 @@
 from django.shortcuts import render
-import requests
 import json
 from datetime import datetime
+from security import safe_requests
 
 
 def index(request):
@@ -15,7 +15,7 @@ def index(request):
 
             url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}&units=metric"
 
-            response = requests.get(url).json()
+            response = safe_requests.get(url).json()
 
             current_time = datetime.now()
 
